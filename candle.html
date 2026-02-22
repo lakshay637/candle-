@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ANLITON - Fragrant Candles</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #A0826D;
+            --secondary: #8B7355;
+            --tertiary: #6B5344;
+            --quaternary: #3E2723;
+            --bg: #FFF8F0;
+            --surface: #FFFFFF;
+            --text: #3E2723;
+            --text-light: #6B5344;
+            --accent: #D4A574;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 15px rgba(200, 168, 224, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 25px rgba(200, 168, 224, 0.6);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        @keyframes wave {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            25% {
+                transform: translateY(-8px);
+            }
+            50% {
+                transform: translateY(0px);
+            }
+            75% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes jiggle {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(-1deg);
+            }
+            75% {
+                transform: rotate(1deg);
+            }
+        }
+
+        @keyframes expandIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Playfair Display', serif;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--surface) 0%, rgba(255, 248, 240, 0.5) 100%);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(160, 130, 109, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid var(--primary);
+            backdrop-filter: blur(10px);
+            animation: slideInDown 0.6s ease-out;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            transition: all 0.3s ease;
+            animation: expandIn 0.8s ease-out;
+        }
+
+        .logo::before {
+            content: "🕯️";
+            margin-right: 0.8rem;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .logo::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            box-shadow: 0 0 10px rgba(160, 130, 109, 0.4);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 15px rgba(160, 130, 109, 0.3);
+        }
+
+        nav a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            animation: slideInRight 0.6s ease-out both;
+        }
+
+        nav a:nth-child(1) { animation-delay: 0.1s; }
+        nav a:nth-child(2) { animation-delay: 0.2s; }
+
+        nav a::before {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s;
+            border-radius: 2px;
+        }
+
+        nav a:hover::before {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+            background: rgba(160, 130, 109, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(62, 39, 35, 0.85), rgba(160, 130, 109, 0.2)), url('https://images.unsplash.com/photo-1602825277985-518066acbe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            padding: 10rem 1rem;
+            text-align: center;
+            margin: 2rem;
+            border: 2px solid rgba(160, 130, 109, 0.4);
+            outline: 4px solid rgba(139, 115, 85, 0.1);
+            outline-offset: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            animation: fadeInDown 0.8s ease-out, wave 4s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(139, 115, 85, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite, rotate 30s linear infinite;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: -30%;
+            left: -15%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(160, 130, 109, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite 1s, rotate 40s linear infinite reverse;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            margin: 0 0 1.2rem 0;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: #ffffff;
+            animation: fadeInDown 1s ease-out 0.2s both;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.95;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            line-height: 1.9;
+            color: #e0f2fe;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-hero {
+            background: linear-gradient(135deg, #A0826D, #8B7355);
+            color: #fff;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 6px 20px rgba(160, 130, 109, 0.4);
+            animation: fadeInUp 1s ease-out 0.6s both, bounce 2s ease-in-out infinite 2.5s;
+            position: relative;
+            z-index: 2;
+            display: inline-block;
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(139, 115, 85, 0.7);
+            background: linear-gradient(135deg, #6B5344, #5A4233);
+            animation: none;
+        }
+
+        .candles-container {
+            max-width: 1200px;
+            margin: 0 auto 5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .candle-card {
+            background: linear-gradient(135deg, #ffffff 0%, #FFF8F0 100%);
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(160, 130, 109, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            border: 2px solid rgba(160, 130, 109, 0.15);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            position: relative;
+            animation: fadeInUp 0.8s ease-out both, expandIn 0.8s ease-out both;
+            overflow: hidden;
+        }
+
+        .candle-card:nth-child(1) { animation-delay: 0.1s; }
+        .candle-card:nth-child(2) { animation-delay: 0.2s; }
+        .candle-card:nth-child(3) { animation-delay: 0.3s; }
+        .candle-card:nth-child(4) { animation-delay: 0.4s; }
+        .candle-card:nth-child(5) { animation-delay: 0.5s; }
+
+        .candle-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #8B7355, #A0826D, #6B5344);
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-radius: 12px 12px 0 0;
+            animation: shimmer 3s ease-in-out infinite;
+            background-size: 200% 100%;
+        }
+
+        .candle-card::after {
+            content: "💎";
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.3s;
+            animation: jiggle 0.6s ease-in-out;
+        }
+
+        .candle-card:hover::before {
+            opacity: 1;
+        }
+
+        .candle-card:hover::after {
+            opacity: 1;
+            transform: scale(1) rotate(360deg);
+            animation: jiggle 0.6s ease-in-out infinite;
+        }
+
+        .candle-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 15px 45px rgba(160, 130, 109, 0.3);
+            border-color: var(--primary);
+            background: linear-gradient(135deg, #ffffff 0%, #FFFBF7 100%);
+        }
+
+        .candle-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .candle-fragrance {
+            color: var(--text-light);
+            font-style: italic;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+
+        .prices {
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(200, 168, 224, 0.1);
+        }
+
+        .mrp {
+            color: var(--text-light);
+            text-decoration: line-through;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+        }
+
+        .offer-price {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-card {
+            margin-top: 1rem;
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #A0826D, #8B7355);
+            border: 2px solid var(--primary);
+            color: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            letter-spacing: 0.5px;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(160, 130, 109, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: expandIn 0.6s ease-out;
+        }
+
+        .btn-card::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-card:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-card:hover {
+            background: linear-gradient(135deg, #6B5344, #5A4233);
+            transform: translateY(-3px) scale(1.02) rotate(1deg);
+            box-shadow: 0 8px 25px rgba(139, 115, 85, 0.6);
+            color: #fff;
+        }
+
+        .btn-card:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+
+        .order-section {
+            background: linear-gradient(135deg, #ffffff 0%, #FFF8F0 100%);
+            max-width: 800px;
+            margin: 5rem auto 6rem;
+            padding: 3.5rem;
+            border-radius: 16px;
+            border: 2px solid rgba(160, 130, 109, 0.2);
+            box-shadow: 0 5px 25px rgba(160, 130, 109, 0.08);
+            transition: all 0.3s;
+            animation: fadeInUp 0.8s ease-out, wave 5s ease-in-out infinite;
+            position: relative;
+        }
+
+        .order-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #A0826D, #8B7355, #D4A574);
+            border-radius: 16px 16px 0 0;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .order-section:hover {
+            box-shadow: 0 12px 45px rgba(160, 130, 109, 0.15);
+            border-color: var(--primary);
+        }
+
+        .order-section:hover::before {
+            opacity: 1;
+        }
+
+        .order-section h2 {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 2.5rem;
+            font-size: 2.3rem;
+            letter-spacing: 2px;
+            text-shadow: 0 1px 4px rgba(200, 168, 224, 0.1);
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 0.7rem;
+            color: var(--text);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--primary);
+        }
+
+        input, select, textarea {
+            padding: 1rem;
+            border: 2px solid rgba(160, 130, 109, 0.15);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #FFF8F0;
+            width: 100%;
+            color: var(--text);
+            animation: expandIn 0.6s ease-out;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(160, 130, 109, 0.15);
+            transform: scale(1.01);
+            animation: jiggle 0.4s ease-out;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        button {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #A0826D, #8B7355);
+            color: #fff;
+            border: none;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(160, 130, 109, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: pulse 2s ease-in-out infinite, bounce 2.5s ease-in-out infinite 1s;
+        }
+
+        button::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #6B5344, #5A4233);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(139, 115, 85, 0.7);
+            animation: none;
+        }
+
+        button:active {
+            transform: translateY(0px);
+            box-shadow: 0 4px 15px rgba(160, 130, 109, 0.3);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #FFF8F0 0%, rgba(240, 240, 235, 0.5) 100%);
+            color: var(--text-light);
+            text-align: center;
+            padding: 4rem 1rem;
+            font-size: 0.9rem;
+            border-top: 3px solid var(--primary);
+            position: relative;
+            animation: slideInUp 0.6s ease-out;
+            box-shadow: 0 -4px 20px rgba(160, 130, 109, 0.08);
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
+            border-radius: 2px;
+        }
+
+        footer::after {
+            content: "✨";
+            position: absolute;
+            bottom: 1rem;
+            right: 2rem;
+            font-size: 1.2rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        footer p {
+            margin: 0;
+            line-height: 1.8;
+            letter-spacing: 0.5px;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+            font-weight: 600;
+            display: inline-block;
+            padding: 0 0.5rem;
+        }
+
+        footer a::before {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--secondary);
+            transform: translateY(-2px);
+            text-shadow: 0 0 8px rgba(160, 130, 109, 0.3);
+        }
+
+        footer a:hover::before {
+            width: 100%;
+        }
+
+        .images-section {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 5rem;
+            margin-top: 3rem;
+            padding: 0 1rem;
+            flex-wrap: wrap;
+        }
+
+        .images-section img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 3px solid var(--primary);
+            box-shadow: 0 8px 25px rgba(160, 130, 109, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeInUp 0.8s ease-out both, expandIn 0.8s ease-out both;
+        }
+
+        .images-section img:nth-child(1) { animation-delay: 0.1s; }
+        .images-section img:nth-child(2) { animation-delay: 0.2s; }
+        .images-section img:nth-child(3) { animation-delay: 0.3s; }
+
+        .images-section img:hover {
+            transform: scale(1.08) rotate(-2deg) translateY(-8px);
+            box-shadow: 0 15px 40px rgba(160, 130, 109, 0.5);
+            border-color: var(--secondary);
+            animation: jiggle 0.4s ease-out infinite;
+        }
+
+        @media (max-width: 768px) {
+            form {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero {
+                margin: 1rem;
+                padding: 5rem 1rem;
+            }
+            .order-section {
+                padding: 1.5rem;
+                margin: 2rem 1rem 5rem;
+            }
+            .candles-container {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+            .candle-card {
+                padding: 1.5rem;
+            }
+            header {
+                padding: 1rem 2%;
+            }
+            .logo {
+                font-size: 1.4rem;
+            }
+            nav a {
+                margin-left: 1rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .btn-hero {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            .order-section {
+                padding: 1rem;
+                margin: 1.5rem 0.5rem 4rem;
+            }
+            .order-section h2 {
+                font-size: 1.5rem;
+            }
+            .candles-container {
+                gap: 1rem;
+                padding: 0 0.5rem;
+            }
+            .candle-card {
+                padding: 1rem;
+            }
+            .candle-name {
+                font-size: 1.1rem;
+            }
+            button {
+                padding: 0.9rem;
+                font-size: 0.95rem;
+            }
+            .btn-card {
+                padding: 0.8rem 1rem;
+                font-size: 0.85rem;
+            }
+            input, select, textarea {
+                font-size: 16px;
+                padding: 0.8rem;
+            }
+            .images-section {
+                gap: 1rem;
+                margin-bottom: 2rem;
+            }
+            .images-section img {
+                width: 150px;
+                height: 150px;
+            }
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav {
+                display: flex;
+                gap: 1rem;
+            }
+            nav a {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 1.2rem;
+            }
+            .hero {
+                margin: 0.5rem;
+                padding: 3rem 0.5rem;
+            }
+            .candle-card {
+                padding: 0.8rem;
+            }
+            .btn-card {
+                padding: 0.7rem 0.8rem;
+                font-size: 0.8rem;
+            }
+            .order-section {
+                padding: 0.8rem;
+                margin: 1rem 0.2rem 3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Anliton</div>
+        <nav>
+            <a href="#shop">Shop</a>
+            <a href="#order-section">Order</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Light Up Your Mood</h1>
+        <p>Let set the mood in your space. Infused with calming essential oils, they soothe the mind, ease stress,
+            and turn any room into a peaceful retreat.</p>
+        <a href="#shop" class="btn-hero">Explore Collection</a>
+    </section>
+
+    <section class="images-section">
+        <img src="../../abc.png" alt="Candle 1" />
+        <img src="../../8.png" alt="Candle 2" />
+        <img src="../../9.png" alt="Candle 3" />
+    </section>
+
+    <section id="shop" class="candles-container" aria-label="Our Candles">
+        <article class="candle-card" tabindex="0">
+            <div class="candle-name">FOREST BLONE</div>
+            <div class="candle-fragrance">Mogra + White Oudh</div>
+            <div class="prices">
+                <span class="mrp">MRP: ₹150/-</span>
+                <span class="offer-price">Offer Price: ₹99/-</span>
+            </div>
+            <button class="btn-card" onclick="selectCandle('FOREST BLONE')">Order Now</button>
+        </article>
+
+        <article class="candle-card" tabindex="0">
+            <div class="candle-name">LADY SOUL - WHITE</div>
+            <div class="candle-fragrance">White + White Oudh</div>
+            <div class="prices">
+                <span class="mrp">MRP: ₹200/-</span>
+                <span class="offer-price">Offer Price: ₹175/-</span>
+            </div>
+            <button class="btn-card" onclick="selectCandle('LADY SOUL - WHITE')">Order Now</button>
+        </article>
+
+        <article class="candle-card" tabindex="0">
+            <div class="candle-name">LADY SOUL - BLACK</div>
+            <div class="candle-fragrance">Whisky</div>
+            <div class="prices">
+                <span class="mrp">MRP: ₹200/-</span>
+                <span class="offer-price">Offer Price: ₹175/-</span>
+            </div>
+            <button class="btn-card" onclick="selectCandle('LADY SOUL - BLACK')">Order Now</button>
+        </article>
+
+        <article class="candle-card" tabindex="0">
+            <div class="candle-name">LADY SOUL - GRAY</div>
+            <div class="candle-fragrance">White Oudh + Mogra</div>
+            <div class="prices">
+                <span class="mrp">MRP: ₹200/-</span>
+                <span class="offer-price">Offer Price: ₹175/-</span>
+            </div>
+            <button class="btn-card" onclick="selectCandle('LADY SOUL - GRAY')">Order Now</button>
+        </article>
+
+        <article class="candle-card" tabindex="0">
+            <div class="candle-name">LADY SOUL - BLUE + WHITE</div>
+            <div class="candle-fragrance">White Oudh + Whisky</div>
+            <div class="prices">
+                <span class="mrp">MRP: ₹200/-</span>
+                <span class="offer-price">Offer Price: ₹175/-</span>
+            </div>
+            <button class="btn-card" onclick="selectCandle('LADY SOUL - BLUE + WHITE')">Order Now</button>
+        </article>
+    </section>
+
+    <section id="order-section" class="order-section" aria-label="Order Form">
+        <h2>Place Your Order</h2>
+        <form id="orderForm">
+            <div class="form-group">
+                <label for="name">Name<span aria-hidden="true">*</span></label>
+                <input type="text" id="name" name="name" placeholder="Full Name" required />
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number<span aria-hidden="true">*</span></label>
+                <input type="text" id="phone" name="phone" placeholder="Phone Number" pattern="[0-9+ -]{10,15}" required />
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail<span aria-hidden="true">*</span></label>
+                <input type="email" id="email" name="email" placeholder="example@gmail.com" required />
+            </div>
+
+            <div class="form-group">
+                <label for="candle">Select Candle<span aria-hidden="true">*</span></label>
+                <select name="candle" id="candle" required>
+                    <option value="" disabled selected>--Choose a Candle--</option>
+                    <option value="FOREST BLONE">FOREST BLONE</option>
+                    <option value="LADY SOUL - WHITE">LADY SOUL - WHITE</option>
+                    <option value="LADY SOUL - BLACK">LADY SOUL - BLACK</option>
+                    <option value="LADY SOUL - GRAY">LADY SOUL - GRAY</option>
+                    <option value="LADY SOUL - BLUE + WHITE">LADY SOUL - BLUE + WHITE</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="quantity">Quantity<span aria-hidden="true">*</span></label>
+                <input type="number" id="quantity" name="quantity" min="1" placeholder="Quantity" required />
+            </div>
+
+            <div class="form-group full-width">
+                <label for="address">Permanent Address<span aria-hidden="true">*</span></label>
+                <textarea id="address" name="address" placeholder="Your full address" required></textarea>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="note">Customized Special Note (Optional)</label>
+                <textarea id="note" name="note" placeholder="Add a special message if gifting"></textarea>
+            </div>
+
+            <button type="submit" aria-label="Submit your order via WhatsApp" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+                Place Order via WhatsApp
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.976.58 1.91 1.007 3.145 1.007 3.176 0 5.767-2.587 5.768-5.766.001-3.185-2.575-5.77-5.764-5.77zm0 10.16c-.79 0-1.518-.255-2.079-.56l-.149-.081-1.283.337.342-1.25-.087-.138c-.34-.538-.572-1.131-.571-1.947.001-2.429 1.971-4.403 4.395-4.403 2.425 0 4.401 1.974 4.401 4.403 0 2.428-1.971 4.402-4.399 4.402zm2.396-3.299c-.136-.068-.804-.396-.929-.441-.125-.045-.216-.068-.307.068-.091.136-.352.441-.432.532-.08.091-.159.102-.295.034-.136-.068-.574-.211-1.093-.674-.405-.361-.678-.807-.758-.943-.08-.136-.008-.21.06-.277.061-.061.136-.159.205-.239.068-.08.091-.136.136-.227.045-.091.023-.17-.011-.239-.034-.068-.307-.739-.42-1.012-.111-.266-.224-.23-.307-.234-.08-.005-.17-.005-.261-.005-.091 0-.239.034-.364.17-.125.136-.477.466-.477 1.137 0 .67.489 1.319.557 1.409.068.091.96 1.466 2.326 2.057.325.141.579.225.778.288.327.104.624.089.859.054.261-.039.804-.329.918-.646.114-.318.114-.591.08-.646-.034-.055-.125-.091-.261-.159z"/>
+                </svg>
+            </button>
+        </form>
+    </section>
+
+    <footer id="contact">
+        Contact us at: <a href="mailto:anlit.core@gmail.com">anlit.core@gmail.com</a> |
+        Call: +91 88820 31172
+    </footer>
+
+    <script>
+        function selectCandle(candleName) {
+            const select = document.getElementById('candle');
+            select.value = candleName;
+            document.getElementById('order-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        const orderForm = document.getElementById('orderForm');
+        orderForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Collect form data
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const candle = document.getElementById('candle').value;
+            const quantity = document.getElementById('quantity').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const note = document.getElementById('note').value.trim() || "None";
+
+            // Compose order details text (formatted for WhatsApp)
+            const orderDetails =
+                `*New Candle Order*\n` +
+                `------------------\n` +
+                `*Name:* ${name}\n` +
+                `*Phone:* ${phone}\n` +
+                `*Email:* ${email}\n` +
+                `*Candle:* ${candle}\n` +
+                `*Quantity:* ${quantity}\n` +
+                `*Address:* ${address}\n` +
+                `*Note:* ${note}`;
+
+            // WhatsApp API URL
+            const phoneNumber = "9188820 31172";
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(orderDetails)}`;
+
+            // Open WhatsApp in a new tab
+            window.open(whatsappUrl, '_blank');
+            
+            // Reset form
+            orderForm.reset();
+        });
+    </script>
+</body>
+
+</html>
